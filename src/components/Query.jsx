@@ -5,16 +5,16 @@ function Query(props) {
     
     return (
         <div className="query">
-            <h2>
+            <h1>
                 {props.title}
-            </h2>
+            </h1>
             <div className="queryContent">
                 {Object.entries(props.data).map(([key, value]) =>
                     <Card
                         key={key}
                         value={value} 
                         code={key} 
-                        selected={key === props.selected}
+                        style={{background: key===props.selected ? "#f5ba13" : "#fff"}}
                         onSelect={props.onSelect}
                     />
                 )}

@@ -18,10 +18,9 @@ export const CATEGORIES = {
 }
 
 export const REGIONS = {
-    "CA": "Canada",
     "CN": "China",
     "FR": "France",
     "GB": "United Kingdom",
     "US": "United States of America",
-    "VN": "Viet Nam"
+    "VN": "Viet Nam",
 }

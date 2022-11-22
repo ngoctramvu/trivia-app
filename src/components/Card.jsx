@@ -6,7 +6,7 @@ function Card(props) {
   }
 
   return (
-    <div className="card" onClick={handleClick} style={{background: props.selected ? "#f5ba13" : "#fff"}}>
+    <div className="card" onClick={handleClick} style={props.style}>
       <h1>{props.value}</h1>
     </div>
   );
