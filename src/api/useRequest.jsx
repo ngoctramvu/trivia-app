@@ -11,7 +11,7 @@ function useRequest(params) {
         var param2 = params[1] ? `&categories=${params[1]}` : ''
         var param3 = params[2] ? `&region=${params[2]}` : ''
 
-        var URL = `${BASE_URL}?limit=5${param1}${param2}${param3}`
+        var URL = `${BASE_URL}?limit=10${param1}${param2}${param3}`
         const {data} = await axios.get(URL)
         return data
     }

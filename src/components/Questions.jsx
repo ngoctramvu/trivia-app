@@ -9,16 +9,6 @@ function Questions(props) {
 
   const questions = useRequest(props.params)
 
-  if(questions === null){
-    return (
-      <div className="questions">
-        <h1>
-          Loading Questions ...
-        </h1>
-      </div>
-    )
-  }
-  
   function counter(isCorrect) {
     if(isCorrect){
       setNumCorrect(numCorrect + 1);
@@ -33,10 +23,7 @@ function Questions(props) {
     return (
       <div className="questions">
         <h1>
-          Question {index} / {questions.length}
-        </h1>
-        <h1>
-          You got {numCorrect} correct
+          Question {index + 1} / {questions.length} | Score {numCorrect}
         </h1>
         <Choices
           key={questions[index]['id']}

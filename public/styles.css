@@ -1,18 +1,29 @@
+:root {
+  --main-bg-color: #f5ba13;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 html {
   font-family: "Montserrat", sans-serif;
 }
+
 body {
   background: #eee;
   padding: 0 16px;
 }
 
+h1 {
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+}
+
 header {
-  background-color: #f5ba13;
+  background-color: var(--main-bg-color);
   margin: auto -16px;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
@@ -20,8 +31,6 @@ header {
 
 header h1 {
   color: #fff;
-  font-family: "McLaren", cursive;
-  font-weight: 200;
 }
 
 .queryPanel {
@@ -38,10 +47,8 @@ header h1 {
 }
 
 .query h1 {
-  font-family: "McLaren", cursive;
-  font-weight: 200;
-  text-align: center;
   margin-top: 50px;
+  text-align: center
 }
 
 .card {
@@ -58,6 +65,16 @@ header h1 {
   display: flex;
 }
 
+.questions h1 {
+  margin: 50px;
+  text-align: center
+}
+
+.choices h1{
+  margin-top: 50px;
+  text-align: center
+}
+
 .card h1 {
   font-size: 1.1em;
   margin: auto;
@@ -65,16 +82,9 @@ header h1 {
   word-wrap: break-word;
 }
 
-.choices h1,
-.questions h1 {
-  font-family: "McLaren", cursive;
-  font-weight: 200;
-  text-align: center;
-  margin-top: 50px;
-}
-
 .buttonFrame h1 {
-  margin-top: 0px;
+  margin: 0px;
+  text-align: center
 }
 
 .buttonFrame {
@@ -82,7 +92,7 @@ header h1 {
 }
 
 button {
-  background: #f5ba13;
+  background: var(--main-bg-color);
   color: black;
   border: none;
   border-radius: 7px;
@@ -94,13 +104,21 @@ button {
   margin: 40px auto;
 }
 
-button h1 {
-  font-family: "McLaren", cursive;
-  font-weight: 200;
-}
-
 button:hover {
-  background-color: #f5ba13;
+  background-color: var(--main-bg-color);
   color: #fff;
 }
 
+.barContainer {
+  margin: auto;
+  width: 50%;
+  height: 15px;
+  background-color: #ccc;
+  border-radius: 7px;
+}
+
+.bar {
+  height: 100%;
+  background-color: var(--main-bg-color);
+  border-radius: 7px;
+}
