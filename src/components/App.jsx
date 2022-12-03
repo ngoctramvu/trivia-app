@@ -6,9 +6,11 @@ import { GAME_STATUS } from '../constants';
 
 function App() {
   const [status, setStatus] = useState(GAME_STATUS.NEW);
+  const [params, setParams] = useState([]);
 
   function startGame(params) {
     console.log(params)
+    setParams(params)
     setStatus(GAME_STATUS.PLAYING)
   }
 
@@ -17,6 +19,7 @@ function App() {
       <div>
         <Header />
         <Questions
+          params={params}
           setStatus={setStatus}/>
       </div>
     );

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { CATEGORIES, DIFFICULTIES, REGIONS } from "../constants";
-import Card from "./Card";
+import { DIFFICULTIES, CATEGORIES, REGIONS } from "../constants";
 import Query from "./Query";
 
 function QueryPanel(props) {
