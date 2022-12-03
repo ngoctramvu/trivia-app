@@ -24,3 +24,9 @@ export const REGIONS = {
     "US": "United States of America",
     "VN": "Viet Nam",
 }
+
+export const GAME_STATUS = {
+    NEW : "NEW",
+    PLAYING : "PLAYING",
+    END : "END",
+}

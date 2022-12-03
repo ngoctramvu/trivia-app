@@ -2,14 +2,8 @@ import React, { useState } from "react";
 import Card from "./Card";
 
 function Choices(props) {
-    const [answer, setAnswer] = React.useState("")
-    const [color, setColor] = React.useState("")
-
     function selectAnswer(code) {
-        setAnswer(code)
-        if(code === props.correctAnswer){
-            console.log(true)
-        }
+        props.counter(code === props.correctAnswer)
     }
 
     return (
@@ -24,7 +18,6 @@ function Choices(props) {
                         code={item} 
                         value={item} 
                         onSelect={selectAnswer}
-                        style={{background: {color}}}
                     />
                 )}
             </div>

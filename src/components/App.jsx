@@ -2,20 +2,22 @@ import React, { useState } from "react";
 import Header from "./Header";
 import QueryPanel from "./QueryPanel";
 import Questions from "./Questions";
+import { GAME_STATUS } from '../constants';
 
 function App() {
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState(GAME_STATUS.NEW);
 
   function startGame(params) {
     console.log(params)
-    setStatus("playing")
+    setStatus(GAME_STATUS.PLAYING)
   }
 
-  if(status==="playing"){
+  if(status===GAME_STATUS.PLAYING){
     return (
       <div>
         <Header />
-        <Questions/>
+        <Questions
+          setStatus={setStatus}/>
       </div>
     );
   }

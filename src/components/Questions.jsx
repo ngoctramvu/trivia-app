@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import Choices from "./Choices";
+import { GAME_STATUS } from "../constants";
 
 function Questions(props) {
   const [index, setIndex] = useState(0);
+  const [numCorrect, setNumCorrect] = useState(0);
 
     var questions = [
         {
@@ -100,16 +102,46 @@ function Questions(props) {
           "regions": []
         }
       ]
+    
+    function counter(isCorrect) {
+      if(isCorrect){
+        setNumCorrect(numCorrect + 1);
+      }
+      setIndex(index + 1)
+    }
+
+    if(index < questions.length){
+      return (
+        <div className="questions">
+          <h1>
+            Question {index} / {questions.length}
+          </h1>
+          <Choices
+            key={questions[index]['id']}
+            question={questions[index]["question"]}
+            correctAnswer={questions[index]['correctAnswer']}
+            choices={questions[index]['incorrectAnswers'].concat(questions[index]['correctAnswer'])}
+            counter={counter}/>
+        </div>
+      );
+    }
+
+    function setNewGame() {
+      props.setStatus(GAME_STATUS.NEW)
+    }
 
     return (
-        <div >
-            <Choices
-              key={questions[index]['id']}
-              question={questions[index]["question"]}
-              correctAnswer={questions[index]['correctAnswer']}
-              choices={questions[index]['incorrectAnswers'].concat(questions[index]['correctAnswer'])}/>
+      <div className="questions">
+        <h1>
+          You got {numCorrect} out of {questions.length}
+        </h1>        
+        <div className="buttonFrame">
+          <button onClick={setNewGame}><h1>New Game</h1></button>
         </div>
-    );
+      </div>
+    )
+
+
 }
 
 export default Questions;

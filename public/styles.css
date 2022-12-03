@@ -65,13 +65,17 @@ header h1 {
   word-wrap: break-word;
 }
 
-.choices h1 {
+.choices h1,
+.questions h1 {
   font-family: "McLaren", cursive;
   font-weight: 200;
   text-align: center;
   margin-top: 50px;
 }
 
+.buttonFrame h1 {
+  margin-top: 0px;
+}
 
 .buttonFrame {
   text-align: center;
