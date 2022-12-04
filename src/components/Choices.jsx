@@ -4,25 +4,34 @@ import ProgressBar from "./ProgressBar";
 
 function Choices(props) {
     const [answer, setAnswer] = useState('')
-    const [mainColor, setMainColor] = useState('#f5ba13')
-    const [secondColor, setSecondColor] = useState('#fff')
+    const [enableSelection, setEnableSelection] = useState(true)
+    
 
     function selectAnswer(code) {
-        console.log(props.correctAnswer)
-        setAnswer(code)
+        if(enableSelection){
+            setAnswer(code)
+        }
     }
 
     function timerEnd() {
-        if(answer === props.correctAnswer){
-            setMainColor("#009E60")
-        } else {
-            setMainColor("#E34234")
-        }
+        setEnableSelection(false)
+        
         setTimeout(() => {
             props.counter(answer === props.correctAnswer)
         }, 2000);
     }
 
+    function getColor(item){
+        if(enableSelection){
+            return item===answer ? "#f5ba13" : "#fff"
+        }
+        if(item === props.correctAnswer){
+            return  "#009E60"
+        }
+        if(item === answer){
+            return  "#E34234"
+        }
+    }
     return (
         <div className="choices">
             <ProgressBar
@@ -38,7 +47,7 @@ function Choices(props) {
                         code={item} 
                         value={item} 
                         onSelect={selectAnswer}
-                        style={{background: item===answer ? mainColor : secondColor}}
+                        style={{background: getColor(item)}}
                     />
                 )}
             </div>
