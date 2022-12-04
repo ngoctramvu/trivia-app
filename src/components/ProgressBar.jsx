@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
 
+// let interval;
+
 function ProgressBar(props) {
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setProgress((currentProgress) => {
-                if (currentProgress + 0.1 < 100) {
-                    return currentProgress + 0.1;
-                } else {
-                    clearInterval(interval);
-                    props.timerEnd();
-                    return 100;
-                }
-            });
+            if(progress + 0.2 <= 100){
+                setProgress(progress => progress + 0.2);
+            } else {
+                clearInterval(interval)
+                props.timerEnd()
+            }
         }, 10);
-        
-    }, []);
+        return () => clearInterval(interval);
+    }, [progress]);
 
 
     return (

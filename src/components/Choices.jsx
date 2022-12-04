@@ -8,16 +8,16 @@ function Choices(props) {
     const [secondColor, setSecondColor] = useState('#fff')
 
     function selectAnswer(code) {
+        console.log(props.correctAnswer)
         setAnswer(code)
     }
 
     function timerEnd() {
         if(answer === props.correctAnswer){
-            setMainColor("#75975e")
+            setMainColor("#009E60")
         } else {
             setMainColor("#E34234")
         }
-        console.log(answer)
         setTimeout(() => {
             props.counter(answer === props.correctAnswer)
         }, 2000);
