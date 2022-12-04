@@ -122,3 +122,13 @@ button:hover {
   background-color: var(--main-bg-color);
   border-radius: 7px;
 }
+
+.sliderContainer {
+  margin: auto;
+  margin-top: 40px;
+  width: 30%;
+}
+
+#questionRange {
+  width: 100%;
+}

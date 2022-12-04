@@ -7,11 +7,11 @@ function useRequest(params) {
     const [questions, setQuestions] = React.useState([])
 
     async function handleRequest() {
-        var param1 = params[0] ? `&difficulty=${params[0]}` : ''
-        var param2 = params[1] ? `&categories=${params[1]}` : ''
-        var param3 = params[2] ? `&region=${params[2]}` : ''
+        var param1 = params[1] ? `&difficulty=${params[1]}` : ''
+        var param2 = params[2] ? `&categories=${params[2]}` : ''
+        var param3 = params[3] ? `&region=${params[3]}` : ''
 
-        var URL = `${BASE_URL}?limit=10${param1}${param2}${param3}`
+        var URL = `${BASE_URL}?limit=${params[0]}${param1}${param2}${param3}`
         const {data} = await axios.get(URL)
         return data
     }

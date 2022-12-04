@@ -6,11 +6,11 @@ function Choices(props) {
     const [answer, setAnswer] = useState('')
     const [enableSelection, setEnableSelection] = useState(true)
     
-
     function selectAnswer(code) {
         if(enableSelection){
             setAnswer(code)
         }
+        console.log(props.correctAnswer)
     }
 
     function timerEnd() {
@@ -32,6 +32,7 @@ function Choices(props) {
             return  "#E34234"
         }
     }
+
     return (
         <div className="choices">
             <ProgressBar
