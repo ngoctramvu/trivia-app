@@ -5,7 +5,7 @@ function Slider(props) {
 
     function handleSliderChange(event) {
         setSliderVal(event.target.value)
-        props.setNumQuestions(sliderVal)
+        props.setNumQuestions(event.target.value)
     }
 
     return (

@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-// let interval;
-
 function ProgressBar(props) {
     const [progress, setProgress] = useState(0);
 
@@ -16,7 +14,6 @@ function ProgressBar(props) {
         }, 10);
         return () => clearInterval(interval);
     }, [progress]);
-
 
     return (
         <div className="barContainer">

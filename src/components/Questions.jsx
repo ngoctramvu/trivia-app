@@ -50,8 +50,6 @@ function Questions(props) {
       </div>
     </div>
   )
-
-
 }
 
 export default Questions;
