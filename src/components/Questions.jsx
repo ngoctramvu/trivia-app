@@ -8,10 +8,14 @@ function Questions(props) {
   const [numCorrect, setNumCorrect] = useState(0);
 
   const questions = useRequest(props.params)
-
+  
   function counter(isCorrect) {
     if(isCorrect){
       setNumCorrect(numCorrect + 1);
+    }
+    if(index + 1 >= questions.length){
+      props.setScore({'correct': numCorrect, 'total': questions.length})
+      props.setStatus(GAME_STATUS.END)
     }
     setIndex(index + 1)
   }
@@ -35,19 +39,12 @@ function Questions(props) {
       </div>
     );
   }
-
-  function setNewGame() {
-    props.setStatus(GAME_STATUS.NEW)
-  }
-
+  
   return (
     <div className="questions">
       <h1>
-        You got {numCorrect} out of {questions.length}
-      </h1>        
-      <div className="buttonFrame">
-        <button onClick={setNewGame}><h1>New Game</h1></button>
-      </div>
+        Loading ...
+      </h1>
     </div>
   )
 }
